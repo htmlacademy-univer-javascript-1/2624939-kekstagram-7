@@ -5,3 +5,4 @@ const photos = getPhotos();
 
 renderPictures(photos);
 
+export { photos };
