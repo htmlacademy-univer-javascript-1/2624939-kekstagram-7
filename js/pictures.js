@@ -1,3 +1,4 @@
+import { openBigPicture } from './big-picture.js';
 
 const renderPictures = (photos) => {
   const picturesContainer = document.querySelector('.pictures');
@@ -5,7 +6,8 @@ const renderPictures = (photos) => {
 
   const picturesFragment = document.createDocumentFragment();
 
-  photos.forEach(({ url, description, likes, comments }) => {
+  photos.forEach((photo) => {
+    const { url, description, likes, comments } = photo;
     const pictureElement = pictureTemplate.cloneNode(true);
 
     const pictureImage = pictureElement.querySelector('.picture__img');
@@ -15,6 +17,11 @@ const renderPictures = (photos) => {
 
     pictureElement.querySelector('.picture__likes').textContent = likes;
     pictureElement.querySelector('.picture__comments').textContent = comments.length;
+
+    pictureElement.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      openBigPicture(photo);
+    });
 
     picturesFragment.appendChild(pictureElement);
   });
