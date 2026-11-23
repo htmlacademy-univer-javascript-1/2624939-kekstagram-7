@@ -1,3 +1,5 @@
+import { resetImageEditor } from './image-editor.js';
+
 const MAX_HASHTAG_COUNT = 5;
 const MAX_DESCRIPTION_LENGTH = 140;
 const HASHTAG_PATTERN = /^#[\p{L}\p{Nd}]{1,19}$/u;
@@ -55,6 +57,7 @@ const closeUploadForm = () => {
   document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeydown);
   uploadForm.reset();
+  resetImageEditor();
   pristine.reset();
 };
 
