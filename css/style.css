@@ -549,8 +549,8 @@ main {
           transform: translateX(-50%);
 }
 
-.effect-level__value {
-  display: none;
+.effect-level__slider {
+  margin: 3px 10px;
 }
 
 
